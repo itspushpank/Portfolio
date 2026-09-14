@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #08090d;
+  --surface: #0d1017;
+  --surface-elevated: #121722;
+  --surface-glass: rgba(18, 23, 34, 0.65);
+
+  --text-primary: #f5f7fb;
+  --text-secondary: #9ba4b5;
+  --text-muted: #626b7d;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-hover: rgba(255, 255, 255, 0.18);
+
+  --accent: #8b9cff;
+  --accent-secondary: #6ee7b7;
+
+  --terminal-green: #7ee787;
+  --terminal-blue: #79c0ff;
+  --terminal-yellow: #e3b341;
+  --terminal-red: #ff7b72;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Antigravity Fine Grid & Spatial Background */
+.background-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.radial-glow {
+  background: radial-gradient(circle 600px at 50% 10%, rgba(139, 156, 255, 0.08), transparent 70%),
+              radial-gradient(circle 500px at 80% 60%, rgba(110, 231, 183, 0.04), transparent 70%),
+              radial-gradient(circle 400px at 20% 90%, rgba(139, 156, 255, 0.05), transparent 70%);
+}
+
+/* Glassmorphic Surfaces */
+.glass {
+  background: rgba(18, 23, 34, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-subtle {
+  background: rgba(13, 16, 23, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-elevated {
+  background: rgba(18, 23, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Spatial Shadows */
+.spatial-shadow {
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* CSS 3D Scenes */
+.scene {
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+.terminal-scene {
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+.project-card-scene {
+  perspective: 1000px;
+  perspective-origin: center;
+}
+
+/* 3D Elements */
+.spatial-element {
+  transform-style: preserve-3d;
+}
+
+.terminal {
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotate-x, 2deg)) rotateY(var(--rotate-y, -3deg));
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.terminal-header {
+  transform: translateZ(12px);
+}
+
+.terminal-content {
+  transform: translateZ(6px);
+}
+
+/* Project Card 3D */
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg);
+    border-color: rgba(139, 156, 255, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(139, 156, 255, 0.12), 0 0 25px rgba(0,0,0,0.6);
+  }
+}
+
+/* Subtle Floating Animation for Hero Terminal */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px) rotateX(var(--rotate-x, 2deg)) rotateY(var(--rotate-y, -3deg));
+  }
+  50% {
+    transform: translateY(-6px) rotateX(var(--rotate-x, 2deg)) rotateY(var(--rotate-y, -3deg));
+  }
+}
+
+.floating-terminal {
+  animation: floatSubtle 6s ease-in-out infinite;
+}
+
+/* Blinking Cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2433;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3347;
+}
+
+/* Terminal inner scrollbar */
+.terminal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.terminal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .terminal {
+    transform: none !important;
+    transition: none !important;
+  }
+  .project-card:hover {
+    transform: none !important;
+  }
+  .floating-terminal {
+    animation: none !important;
+  }
+}
