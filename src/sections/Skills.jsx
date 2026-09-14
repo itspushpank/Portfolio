@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Code2, TerminalSquare, Wrench, Layers } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { skillCategories } from '../data/skills';
 import SkillBadge from '../components/SkillBadge';
 
@@ -15,14 +15,14 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center md:items-start mb-10">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#8b9cff] uppercase tracking-widest mb-2">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d] uppercase tracking-widest mb-2">
             <Sparkles size={14} />
             <span>Technical Capabilities</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f5f7fb]">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             Skills & Toolchain
           </h2>
-          <p className="text-sm sm:text-base text-[#9ba4b5] mt-2 max-w-xl text-center md:text-left">
+          <p className="text-sm sm:text-base text-[#a1a1aa] mt-2 max-w-xl text-center md:text-left">
             A comprehensive matrix of programming languages, modern frontend libraries, and engineering tools I use daily.
           </p>
         </div>
@@ -34,8 +34,8 @@ export default function Skills() {
             onClick={() => setActiveTab('all')}
             className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeTab === 'all'
-                ? 'bg-[#8b9cff] text-[#08090d] font-bold shadow-md shadow-[#8b9cff]/20'
-                : 'glass hover:bg-white/10 text-[#9ba4b5] hover:text-[#f5f7fb]'
+                ? 'bg-[#f0db7d] text-[#000000] font-bold shadow-md shadow-[#f0db7d]/15'
+                : 'glass hover:bg-white/10 text-[#a1a1aa] hover:text-white'
             }`}
           >
             All Skills ({skillCategories.reduce((acc, c) => acc + c.skills.length, 0)})
@@ -48,8 +48,8 @@ export default function Skills() {
               onClick={() => setActiveTab(category.id)}
               className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
                 activeTab === category.id
-                  ? 'bg-[#8b9cff] text-[#08090d] font-bold shadow-md shadow-[#8b9cff]/20'
-                  : 'glass hover:bg-white/10 text-[#9ba4b5] hover:text-[#f5f7fb]'
+                  ? 'bg-[#f0db7d] text-[#000000] font-bold shadow-md shadow-[#f0db7d]/15'
+                  : 'glass hover:bg-white/10 text-[#a1a1aa] hover:text-white'
               }`}
             >
               {category.title}
@@ -63,12 +63,12 @@ export default function Skills() {
             <div key={category.id} className="space-y-4">
               <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#8b9cff]" />
-                  <h3 className="text-lg font-bold text-[#f5f7fb] tracking-tight">
+                  <span className="w-2 h-2 rounded-full bg-[#f0db7d]" />
+                  <h3 className="text-lg font-bold text-white tracking-tight">
                     {category.title}
                   </h3>
                 </div>
-                <span className="text-xs font-mono text-[#9ba4b5]">
+                <span className="text-xs font-mono text-[#a1a1aa]">
                   {category.skills.length} competencies
                 </span>
               </div>

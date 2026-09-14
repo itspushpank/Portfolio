@@ -10,7 +10,7 @@ export default function GlassCard({
 }) {
   const baseClasses = elevated ? 'glass-elevated' : 'glass';
   const interactiveClasses = interactive
-    ? 'transition-all duration-300 hover:border-white/20 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#8b9cff]/5'
+    ? 'transition-all duration-300 hover:border-[#f0db7d]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f0db7d]/5'
     : '';
 
   return (

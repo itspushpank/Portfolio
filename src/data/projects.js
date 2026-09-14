@@ -15,7 +15,7 @@ export const projects = [
       'Distraction-free reading view with saved articles',
       'Optimized image loading and responsive card layouts'
     ],
-    accentColor: '#8b9cff',
+    accentColor: '#f0db7d',
     badge: 'Featured Project'
   },
   {
@@ -34,7 +34,7 @@ export const projects = [
       'Real-time book availability indicator',
       'Reservation tracking interface for students'
     ],
-    accentColor: '#6ee7b7',
+    accentColor: '#f0db7d',
     badge: 'Campus Utility'
   },
   {
@@ -53,7 +53,7 @@ export const projects = [
       'Data persistence with clean validation guards',
       'Modular object-oriented architecture'
     ],
-    accentColor: '#e3b341',
+    accentColor: '#f0db7d',
     badge: 'CS Core'
   },
   {
@@ -72,7 +72,7 @@ export const projects = [
       'CSS 3D perspective scenes & pointer-reactive depth',
       'Strictly zero WebGL / Canvas overhead for maximum performance'
     ],
-    accentColor: '#8b9cff',
+    accentColor: '#f0db7d',
     badge: 'Current Site'
   }
 ];

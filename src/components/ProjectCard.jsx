@@ -3,62 +3,62 @@ import { ExternalLink, Sparkles, Layers, ArrowUpRight } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function ProjectCard({ project, isFeatured = false }) {
-  // Visual mockup representation tailored for each project
+  // Visual mockup representation tailored for each project in black, white, and dim yellow
   const renderMockup = () => {
     switch (project.id) {
       case 'horizon-news':
         return (
-          <div className="w-full h-full bg-[#08090d] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden group/mock">
+          <div className="w-full h-full bg-[#050505] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden group/mock">
             {/* Top Bar */}
             <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#8b9cff]" />
-                <span className="font-mono text-xs font-semibold text-[#f5f7fb]">HORIZON // TECH NEWS</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#f0db7d]" />
+                <span className="font-mono text-xs font-semibold text-white">HORIZON // TECH NEWS</span>
               </div>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.06] text-[#6ee7b7]">LIVE FEED</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f0db7d]/10 text-[#f0db7d] border border-[#f0db7d]/20">LIVE FEED</span>
             </div>
             {/* News Cards Grid */}
             <div className="grid grid-cols-2 gap-2 my-2">
-              <div className="p-2.5 rounded-md bg-[#121722]/80 border border-white/[0.06] space-y-1">
-                <div className="h-2 w-16 bg-[#8b9cff]/40 rounded" />
+              <div className="p-2.5 rounded-md bg-[#111111] border border-white/[0.06] space-y-1">
+                <div className="h-2 w-16 bg-[#f0db7d]/40 rounded" />
                 <div className="h-3 w-full bg-white/20 rounded" />
                 <div className="h-2 w-3/4 bg-white/10 rounded" />
               </div>
-              <div className="p-2.5 rounded-md bg-[#121722]/80 border border-white/[0.06] space-y-1">
-                <div className="h-2 w-12 bg-[#6ee7b7]/40 rounded" />
+              <div className="p-2.5 rounded-md bg-[#111111] border border-white/[0.06] space-y-1">
+                <div className="h-2 w-12 bg-white/30 rounded" />
                 <div className="h-3 w-full bg-white/20 rounded" />
                 <div className="h-2 w-2/3 bg-white/10 rounded" />
               </div>
             </div>
             {/* Bottom Status */}
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#9ba4b5]/70 pt-1">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#a1a1aa]/70 pt-1">
               <span>Articles indexed: 140+</span>
-              <span className="text-[#8b9cff]">Reader Mode: Active</span>
+              <span className="text-[#f0db7d]">Reader Mode: Active</span>
             </div>
           </div>
         );
 
       case 'katihar-central-library':
         return (
-          <div className="w-full h-full bg-[#08090d] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
+          <div className="w-full h-full bg-[#050505] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#6ee7b7]" />
-                <span className="font-mono text-xs font-semibold text-[#f5f7fb]">KEC CATALOG PORTAL</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#f0db7d]" />
+                <span className="font-mono text-xs font-semibold text-white">KEC CATALOG PORTAL</span>
               </div>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#6ee7b7]/10 text-[#6ee7b7]">LIBRARY</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.06] text-[#a1a1aa]">LIBRARY</span>
             </div>
             <div className="space-y-1.5 my-2">
               <div className="flex items-center justify-between p-1.5 rounded bg-white/[0.03] border border-white/[0.04]">
                 <div className="h-2.5 w-32 bg-white/25 rounded" />
-                <span className="text-[9px] font-mono text-[#6ee7b7]">Available (8)</span>
+                <span className="text-[9px] font-mono text-[#f0db7d]">Available (8)</span>
               </div>
               <div className="flex items-center justify-between p-1.5 rounded bg-white/[0.03] border border-white/[0.04]">
                 <div className="h-2.5 w-28 bg-white/20 rounded" />
-                <span className="text-[9px] font-mono text-[#e3b341]">Reserved (2)</span>
+                <span className="text-[9px] font-mono text-white/50">Reserved (2)</span>
               </div>
             </div>
-            <div className="text-[10px] font-mono text-[#9ba4b5]/60">
+            <div className="text-[10px] font-mono text-[#a1a1aa]/60">
               Department: Computer Science & Eng.
             </div>
           </div>
@@ -66,20 +66,20 @@ export default function ProjectCard({ project, isFeatured = false }) {
 
       case 'student-management-system':
         return (
-          <div className="w-full h-full bg-[#08090d] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
+          <div className="w-full h-full bg-[#050505] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#e3b341]" />
-                <span className="font-mono text-xs font-semibold text-[#f5f7fb]">STUDENT MATRIX [CLI]</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#f0db7d]" />
+                <span className="font-mono text-xs font-semibold text-white">STUDENT MATRIX [CLI]</span>
               </div>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#e3b341]/10 text-[#e3b341]">v2.4</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f0db7d]/10 text-[#f0db7d]">v2.4</span>
             </div>
-            <div className="font-mono text-[10px] text-[#9ba4b5] space-y-1 my-2 bg-[#050608] p-2 rounded border border-white/[0.05]">
-              <div className="text-[#6ee7b7]">{"{ record_id: 'KEC2501', gpa: 8.9 }"}</div>
-              <div className="text-white/60">Attendance: 94.2% [PASS]</div>
-              <div className="text-[#8b9cff]">Enrolled: Data Structures, OOP</div>
+            <div className="font-mono text-[10px] text-[#a1a1aa] space-y-1 my-2 bg-[#000000] p-2 rounded border border-white/[0.05]">
+              <div className="text-[#f0db7d]">{"{ record_id: 'KEC2501', gpa: 8.9 }"}</div>
+              <div className="text-white/70">Attendance: 94.2% [PASS]</div>
+              <div className="text-[#a1a1aa]">Enrolled: Data Structures, OOP</div>
             </div>
-            <div className="text-[10px] font-mono text-[#9ba4b5]/60">
+            <div className="text-[10px] font-mono text-[#a1a1aa]/60">
               Storage: JSON / Object Graph
             </div>
           </div>
@@ -87,20 +87,20 @@ export default function ProjectCard({ project, isFeatured = false }) {
 
       default:
         return (
-          <div className="w-full h-full bg-[#08090d] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
+          <div className="w-full h-full bg-[#050505] p-4 flex flex-col justify-between border-b border-white/[0.08] relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#8b9cff]" />
-                <span className="font-mono text-xs font-semibold text-[#f5f7fb]">SPATIAL WORKSPACE</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#f0db7d]" />
+                <span className="font-mono text-xs font-semibold text-white">SPATIAL WORKSPACE</span>
               </div>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#8b9cff]/10 text-[#8b9cff]">3D ENGINE</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f0db7d]/10 text-[#f0db7d]">3D ENGINE</span>
             </div>
             <div className="flex items-center justify-center my-3">
-              <div className="w-16 h-12 rounded border border-[#8b9cff]/40 bg-[#8b9cff]/10 flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
-                <Layers size={20} className="text-[#8b9cff]" />
+              <div className="w-16 h-12 rounded border border-[#f0db7d]/40 bg-[#f0db7d]/10 flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
+                <Layers size={20} className="text-[#f0db7d]" />
               </div>
             </div>
-            <div className="text-[10px] font-mono text-[#9ba4b5]/60 text-center">
+            <div className="text-[10px] font-mono text-[#a1a1aa]/60 text-center">
               CSS Perspective: 1200px • Zero WebGL
             </div>
           </div>
@@ -111,12 +111,12 @@ export default function ProjectCard({ project, isFeatured = false }) {
   if (isFeatured) {
     return (
       <div className="project-card-scene w-full">
-        <div className="project-card rounded-2xl glass-elevated border border-white/10 hover:border-[#8b9cff]/40 overflow-hidden spatial-shadow transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0">
+        <div className="project-card rounded-2xl glass-elevated border border-white/10 hover:border-[#f0db7d]/40 overflow-hidden spatial-shadow transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Visual Column */}
-          <div className="lg:col-span-6 h-56 lg:h-auto min-h-[240px] relative bg-[#0a0d14]">
+          <div className="lg:col-span-6 h-56 lg:h-auto min-h-[240px] relative bg-[#070707]">
             {renderMockup()}
             <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-mono font-medium rounded-full bg-[#8b9cff]/20 text-[#8b9cff] border border-[#8b9cff]/30 backdrop-blur-md flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-mono font-medium rounded-full bg-[#f0db7d]/15 text-[#f0db7d] border border-[#f0db7d]/30 backdrop-blur-md flex items-center gap-1.5">
                 <Sparkles size={12} />
                 Featured Project
               </span>
@@ -127,28 +127,28 @@ export default function ProjectCard({ project, isFeatured = false }) {
           <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-5">
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#8b9cff]">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#f0db7d]">
                   {project.category}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-bold text-[#f5f7fb] tracking-tight group-hover:text-[#8b9cff] transition-colors">
+              <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-[#f0db7d] transition-colors">
                 {project.title}
               </h3>
 
-              <p className="text-sm font-medium text-[#9ba4b5] mt-1">
+              <p className="text-sm font-medium text-[#a1a1aa] mt-1">
                 {project.tagline}
               </p>
 
-              <p className="text-sm text-[#9ba4b5]/90 mt-3 leading-relaxed">
+              <p className="text-sm text-[#a1a1aa]/90 mt-3 leading-relaxed">
                 {project.description}
               </p>
 
               {/* Key Highlights */}
               <div className="mt-4 space-y-1.5">
                 {project.highlights.map((h, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-[#9ba4b5]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6ee7b7]" />
+                  <div key={i} className="flex items-center gap-2 text-xs text-[#a1a1aa]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f0db7d]" />
                     <span>{h}</span>
                   </div>
                 ))}
@@ -161,7 +161,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-[#9ba4b5] border border-white/[0.06]"
+                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-[#a1a1aa] border border-white/[0.06]"
                   >
                     {tech}
                   </span>
@@ -175,7 +175,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#8b9cff] hover:bg-[#9fadff] text-[#08090d] text-sm font-semibold transition-all shadow-md shadow-[#8b9cff]/20"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#f0db7d] hover:bg-[#f7e7a0] text-[#000000] text-sm font-semibold transition-all shadow-md shadow-[#f0db7d]/15"
                   >
                     <span>Live Demo</span>
                     <ArrowUpRight size={16} />
@@ -186,7 +186,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#f5f7fb] text-sm font-medium border border-white/[0.08] transition-all"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-white text-sm font-medium border border-white/[0.08] hover:border-[#f0db7d]/30 transition-all"
                   >
                     <Github size={16} />
                     <span>Source Code</span>
@@ -203,13 +203,13 @@ export default function ProjectCard({ project, isFeatured = false }) {
   // Standard Project Card
   return (
     <div className="project-card-scene h-full">
-      <div className="project-card h-full flex flex-col justify-between rounded-xl glass-elevated border border-white/10 hover:border-[#8b9cff]/30 overflow-hidden card-shadow">
+      <div className="project-card h-full flex flex-col justify-between rounded-xl glass-elevated border border-white/10 hover:border-[#f0db7d]/30 overflow-hidden card-shadow">
         <div>
           {/* Top Mockup Area */}
-          <div className="h-44 relative bg-[#0a0d14]">
+          <div className="h-44 relative bg-[#070707]">
             {renderMockup()}
             {project.badge && (
-              <span className="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[#9ba4b5] border border-white/10">
+              <span className="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[#a1a1aa] border border-white/10">
                 {project.badge}
               </span>
             )}
@@ -217,15 +217,15 @@ export default function ProjectCard({ project, isFeatured = false }) {
 
           {/* Card Body */}
           <div className="p-5 space-y-3">
-            <div className="text-[11px] font-mono uppercase tracking-wider text-[#8b9cff]">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-[#f0db7d]">
               {project.category}
             </div>
 
-            <h3 className="text-lg font-bold text-[#f5f7fb] tracking-tight">
+            <h3 className="text-lg font-bold text-white tracking-tight">
               {project.title}
             </h3>
 
-            <p className="text-xs text-[#9ba4b5] leading-relaxed line-clamp-3">
+            <p className="text-xs text-[#a1a1aa] leading-relaxed line-clamp-3">
               {project.description}
             </p>
 
@@ -234,7 +234,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-[#9ba4b5] border border-white/[0.06]"
+                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-[#a1a1aa] border border-white/[0.06]"
                 >
                   {tech}
                 </span>
@@ -249,7 +249,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#9ba4b5] hover:text-[#f5f7fb] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#a1a1aa] hover:text-white transition-colors"
           >
             <Github size={14} />
             <span>GitHub</span>
@@ -260,7 +260,7 @@ export default function ProjectCard({ project, isFeatured = false }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-[#8b9cff] hover:text-[#9fadff] transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#f0db7d] hover:text-[#f7e7a0] transition-colors"
             >
               <span>Explore</span>
               <ArrowUpRight size={14} />

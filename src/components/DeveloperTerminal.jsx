@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal as TerminalIcon, Sparkles, CornerDownLeft, Maximize2, RotateCcw } from 'lucide-react';
+import { Terminal as TerminalIcon, Sparkles, CornerDownLeft, RotateCcw } from 'lucide-react';
 import { INITIAL_TERMINAL_ENTRIES, processCommand } from '../data/terminalCommands';
 
 export default function DeveloperTerminal() {
@@ -29,17 +29,15 @@ export default function DeveloperTerminal() {
     if (!terminalRef.current) return;
 
     const rect = terminalRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within element
-    const y = e.clientY - rect.top;  // y position within element
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    // Calculate normalized coordinates (-1 to 1) from center
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
     const deltaX = (x - centerX) / centerX;
     const deltaY = (y - centerY) / centerY;
 
-    // Clamped tilt angles (rotateX is vertical tilt, rotateY is horizontal tilt)
     const rotateX = (-deltaY * 3.5).toFixed(2);
     const rotateY = (deltaX * 4.5).toFixed(2);
 
@@ -59,7 +57,6 @@ export default function DeveloperTerminal() {
 
     const result = processCommand(trimmed);
 
-    // Save to history
     setHistory((prev) => [...prev.filter((h) => h !== trimmed), trimmed]);
     setHistoryIndex(-1);
 
@@ -118,25 +115,25 @@ export default function DeveloperTerminal() {
         }}
       >
         {/* Terminal Header */}
-        <div className="terminal-header flex items-center justify-between px-4 py-3 bg-[#0d1017]/90 border-b border-white/[0.08] select-none">
+        <div className="terminal-header flex items-center justify-between px-4 py-3 bg-[#0a0a0a]/95 border-b border-white/[0.08] select-none">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff7b72] hover:opacity-80 transition-opacity" title="Close" />
-            <div className="w-3 h-3 rounded-full bg-[#e3b341] hover:opacity-80 transition-opacity" title="Minimize" />
-            <div className="w-3 h-3 rounded-full bg-[#7ee787] hover:opacity-80 transition-opacity" title="Maximize" />
+            <div className="w-3 h-3 rounded-full bg-[#e07a5f]/90 hover:opacity-80 transition-opacity" title="Close" />
+            <div className="w-3 h-3 rounded-full bg-[#f0db7d]/90 hover:opacity-80 transition-opacity" title="Minimize" />
+            <div className="w-3 h-3 rounded-full bg-[#d4e09b]/90 hover:opacity-80 transition-opacity" title="Maximize" />
             
-            <div className="ml-3 hidden sm:flex items-center gap-2 text-xs font-mono text-[#9ba4b5]">
-              <TerminalIcon size={13} className="text-[#8b9cff]" />
-              <span className="text-[#f5f7fb]/80 font-medium">pushpank@workspace</span>
+            <div className="ml-3 hidden sm:flex items-center gap-2 text-xs font-mono text-[#a1a1aa]">
+              <TerminalIcon size={13} className="text-[#f0db7d]" />
+              <span className="text-white/90 font-medium">pushpank@workspace</span>
               <span className="text-white/30">:</span>
-              <span className="text-[#8b9cff]">~</span>
+              <span className="text-[#f0db7d]">~</span>
               <span className="text-white/40">(zsh)</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             {/* Status indicator */}
-            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#7ee787]/10 border border-[#7ee787]/20 text-[11px] font-mono text-[#7ee787]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7ee787] pulse-dot" />
+            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#f0db7d]/10 border border-[#f0db7d]/25 text-[11px] font-mono text-[#f0db7d]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f0db7d] pulse-dot" />
               <span>live</span>
             </div>
             <button
@@ -146,7 +143,7 @@ export default function DeveloperTerminal() {
                 setEntries([]);
               }}
               title="Clear terminal"
-              className="text-[#9ba4b5] hover:text-[#f5f7fb] transition-colors p-1 rounded hover:bg-white/5"
+              className="text-[#a1a1aa] hover:text-white transition-colors p-1 rounded hover:bg-white/5"
             >
               <RotateCcw size={13} />
             </button>
@@ -154,20 +151,20 @@ export default function DeveloperTerminal() {
         </div>
 
         {/* Terminal Content / Log */}
-        <div className="terminal-content p-4 sm:p-5 font-mono text-xs sm:text-sm h-[320px] sm:h-[360px] overflow-y-auto terminal-scroll bg-[#08090d]/85 text-[#f5f7fb] space-y-3">
+        <div className="terminal-content p-4 sm:p-5 font-mono text-xs sm:text-sm h-[320px] sm:h-[360px] overflow-y-auto terminal-scroll bg-[#050505]/90 text-white space-y-3">
           {entries.map((entry, index) => (
             <div key={index} className="leading-relaxed">
               {entry.type === 'command' ? (
-                <div className="flex items-center gap-2 text-[#8b9cff]">
-                  <span className="text-[#6ee7b7] font-semibold">$</span>
-                  <span className="font-semibold text-[#f5f7fb]">{entry.text}</span>
+                <div className="flex items-center gap-2 text-[#f0db7d]">
+                  <span className="text-[#f0db7d] font-semibold">$</span>
+                  <span className="font-semibold text-white">{entry.text}</span>
                 </div>
               ) : entry.type === 'error' ? (
-                <pre className="text-[#ff7b72] whitespace-pre-wrap font-mono mt-1 text-xs">
+                <pre className="text-[#e07a5f] whitespace-pre-wrap font-mono mt-1 text-xs">
                   {entry.text}
                 </pre>
               ) : (
-                <pre className="text-[#9ba4b5] whitespace-pre-wrap font-mono mt-1 text-xs leading-5">
+                <pre className="text-[#a1a1aa] whitespace-pre-wrap font-mono mt-1 text-xs leading-5">
                   {entry.text}
                 </pre>
               )}
@@ -176,7 +173,7 @@ export default function DeveloperTerminal() {
 
           {/* Active Command Input Line */}
           <form onSubmit={handleSubmit} className="flex items-center gap-2 pt-1">
-            <span className="text-[#6ee7b7] font-semibold text-sm">$</span>
+            <span className="text-[#f0db7d] font-semibold text-sm">$</span>
             <input
               ref={inputRef}
               type="text"
@@ -187,14 +184,14 @@ export default function DeveloperTerminal() {
               onBlur={() => setIsFocused(false)}
               placeholder="Type 'help' or try a command..."
               aria-label="Terminal command prompt"
-              className="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-[#f5f7fb] placeholder:text-white/30 caret-[#8b9cff]"
+              className="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-white placeholder:text-white/25 caret-[#f0db7d]"
               autoComplete="off"
               spellCheck="false"
             />
             <button
               type="submit"
               aria-label="Execute command"
-              className="p-1 text-[#8b9cff] hover:text-white opacity-70 hover:opacity-100 transition-opacity"
+              className="p-1 text-[#f0db7d] hover:text-white opacity-70 hover:opacity-100 transition-opacity"
             >
               <CornerDownLeft size={14} />
             </button>
@@ -204,10 +201,10 @@ export default function DeveloperTerminal() {
         </div>
 
         {/* Quick Command Suggestion Bar */}
-        <div className="px-4 py-2 bg-[#0d1017] border-t border-white/[0.06] flex items-center justify-between gap-2 overflow-x-auto select-none">
+        <div className="px-4 py-2 bg-[#0a0a0a] border-t border-white/[0.06] flex items-center justify-between gap-2 overflow-x-auto select-none">
           <div className="flex items-center gap-1.5 flex-nowrap">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#9ba4b5]/60 mr-1 flex items-center gap-1">
-              <Sparkles size={11} className="text-[#8b9cff]" /> Quick:
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#a1a1aa]/70 mr-1 flex items-center gap-1">
+              <Sparkles size={11} className="text-[#f0db7d]" /> Quick:
             </span>
             {quickActions.map((cmd) => (
               <button
@@ -217,7 +214,7 @@ export default function DeveloperTerminal() {
                   e.stopPropagation();
                   executeCommand(cmd);
                 }}
-                className="px-2 py-0.5 text-[11px] font-mono rounded bg-white/[0.04] text-[#9ba4b5] hover:text-[#f5f7fb] hover:bg-[#8b9cff]/15 hover:border-[#8b9cff]/30 border border-white/[0.06] transition-all whitespace-nowrap"
+                className="px-2 py-0.5 text-[11px] font-mono rounded bg-white/[0.04] text-[#a1a1aa] hover:text-white hover:bg-[#f0db7d]/15 hover:border-[#f0db7d]/35 border border-white/[0.06] transition-all whitespace-nowrap"
               >
                 {cmd}
               </button>

@@ -4,11 +4,11 @@ export const skillCategories = [
     title: 'Frontend Development',
     description: 'Building responsive, accessible, and high-performance user interfaces with modern web standards.',
     skills: [
-      { name: 'HTML5', level: 'Semantic, SEO, Accessibility', icon: 'Code2', color: '#e34f26' },
-      { name: 'CSS3 / 3D', level: 'Flexbox, Grid, CSS 3D, Animations', icon: 'Layout', color: '#264de4' },
-      { name: 'JavaScript', level: 'ES6+, Async, DOM manipulation', icon: 'FileCode2', color: '#f7df1e' },
-      { name: 'React', level: 'Hooks, State, Component Architecture', icon: 'Atom', color: '#61dafb' },
-      { name: 'Tailwind CSS', level: 'Utility-first Design Systems', icon: 'Palette', color: '#38bdf8' }
+      { name: 'HTML5', level: 'Semantic, SEO, Accessibility', icon: 'Code2', color: '#f0db7d' },
+      { name: 'CSS3 / 3D', level: 'Flexbox, Grid, CSS 3D, Animations', icon: 'Layout', color: '#e8dbb5' },
+      { name: 'JavaScript', level: 'ES6+, Async, DOM manipulation', icon: 'FileCode2', color: '#f0db7d' },
+      { name: 'React', level: 'Hooks, State, Component Architecture', icon: 'Atom', color: '#ffffff' },
+      { name: 'Tailwind CSS', level: 'Utility-first Design Systems', icon: 'Palette', color: '#e8dbb5' }
     ]
   },
   {
@@ -16,10 +16,10 @@ export const skillCategories = [
     title: 'Core Programming & CS',
     description: 'Strong foundation in object-oriented programming, algorithms, and computational problem solving.',
     skills: [
-      { name: 'Python', level: 'Scripting, Automation, Data Structures', icon: 'TerminalSquare', color: '#3776ab' },
-      { name: 'Java', level: 'OOP, Collections, Architecture', icon: 'Coffee', color: '#ea2d2e' },
-      { name: 'DSA', level: 'Arrays, Trees, Graphs, Sorting, Complexity', icon: 'Binary', color: '#6ee7b7' },
-      { name: 'Object-Oriented Design', level: 'Inheritance, Polymorphism, Abstraction', icon: 'Boxes', color: '#8b9cff' }
+      { name: 'Python', level: 'Scripting, Automation, Data Structures', icon: 'TerminalSquare', color: '#f0db7d' },
+      { name: 'Java', level: 'OOP, Collections, Architecture', icon: 'Coffee', color: '#e8dbb5' },
+      { name: 'DSA', level: 'Arrays, Trees, Graphs, Sorting, Complexity', icon: 'Binary', color: '#f0db7d' },
+      { name: 'Object-Oriented Design', level: 'Inheritance, Polymorphism, Abstraction', icon: 'Boxes', color: '#ffffff' }
     ]
   },
   {
@@ -27,10 +27,10 @@ export const skillCategories = [
     title: 'Developer Tools & Workflow',
     description: 'Modern developer toolchain for version control, efficient development, and build orchestration.',
     skills: [
-      { name: 'Git', level: 'Version Control, Branching, Merging', icon: 'GitBranch', color: '#f05032' },
-      { name: 'GitHub', level: 'Collaboration, Pull Requests, Repos', icon: 'Github', color: '#f5f7fb' },
-      { name: 'VS Code', level: 'Extensions, Debugging, Custom configs', icon: 'Cpu', color: '#007acc' },
-      { name: 'Vite', level: 'Fast ESM tooling & Bundling', icon: 'Zap', color: '#bd34fe' }
+      { name: 'Git', level: 'Version Control, Branching, Merging', icon: 'GitBranch', color: '#e8dbb5' },
+      { name: 'GitHub', level: 'Collaboration, Pull Requests, Repos', icon: 'Github', color: '#ffffff' },
+      { name: 'VS Code', level: 'Extensions, Debugging, Custom configs', icon: 'Cpu', color: '#f0db7d' },
+      { name: 'Vite', level: 'Fast ESM tooling & Bundling', icon: 'Zap', color: '#f0db7d' }
     ]
   }
 ];

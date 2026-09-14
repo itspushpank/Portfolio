@@ -3,25 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #08090d;
-  --surface: #0d1017;
-  --surface-elevated: #121722;
-  --surface-glass: rgba(18, 23, 34, 0.65);
+  --background: #000000;
+  --surface: #0a0a0a;
+  --surface-elevated: #121212;
+  --surface-glass: rgba(12, 12, 12, 0.75);
 
-  --text-primary: #f5f7fb;
-  --text-secondary: #9ba4b5;
-  --text-muted: #626b7d;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
 
-  --border: rgba(255, 255, 255, 0.09);
-  --border-hover: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(240, 219, 125, 0.35);
 
-  --accent: #8b9cff;
-  --accent-secondary: #6ee7b7;
+  --accent: #f0db7d;
+  --accent-hover: #f7e7a0;
+  --accent-dim: #c7b055;
+  --accent-secondary: #f4ede0;
 
-  --terminal-green: #7ee787;
-  --terminal-blue: #79c0ff;
-  --terminal-yellow: #e3b341;
-  --terminal-red: #ff7b72;
+  --terminal-green: #d4e09b;
+  --terminal-blue: #e8dbb5;
+  --terminal-yellow: #f0db7d;
+  --terminal-red: #e07a5f;
 }
 
 body {
@@ -32,38 +34,38 @@ body {
   min-height: 100vh;
 }
 
-/* Antigravity Fine Grid & Spatial Background */
+/* Antigravity Fine Grid & Spatial Background in Black & Dim Warm Light */
 .background-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .radial-glow {
-  background: radial-gradient(circle 600px at 50% 10%, rgba(139, 156, 255, 0.08), transparent 70%),
-              radial-gradient(circle 500px at 80% 60%, rgba(110, 231, 183, 0.04), transparent 70%),
-              radial-gradient(circle 400px at 20% 90%, rgba(139, 156, 255, 0.05), transparent 70%);
+  background: radial-gradient(circle 600px at 50% 8%, rgba(240, 219, 125, 0.06), transparent 70%),
+              radial-gradient(circle 500px at 80% 55%, rgba(255, 255, 255, 0.025), transparent 70%),
+              radial-gradient(circle 400px at 20% 90%, rgba(240, 219, 125, 0.035), transparent 70%);
 }
 
 /* Glassmorphic Surfaces */
 .glass {
-  background: rgba(18, 23, 34, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(12, 12, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
 
 .glass-subtle {
-  background: rgba(13, 16, 23, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(8, 8, 8, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-elevated {
-  background: rgba(18, 23, 34, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(16, 16, 16, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -71,12 +73,12 @@ body {
 /* Spatial Shadows */
 .spatial-shadow {
   box-shadow:
-    0 24px 80px rgba(0, 0, 0, 0.45),
-    0 8px 24px rgba(0, 0, 0, 0.25);
+    0 24px 80px rgba(0, 0, 0, 0.8),
+    0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 .card-shadow {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
 }
 
 /* CSS 3D Scenes */
@@ -123,8 +125,8 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .project-card:hover {
     transform: translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg);
-    border-color: rgba(139, 156, 255, 0.3);
-    box-shadow: 0 20px 40px -15px rgba(139, 156, 255, 0.12), 0 0 25px rgba(0,0,0,0.6);
+    border-color: rgba(240, 219, 125, 0.35);
+    box-shadow: 0 20px 40px -15px rgba(240, 219, 125, 0.1), 0 0 25px rgba(0,0,0,0.8);
   }
 }
 
@@ -175,16 +177,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #08090d;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2433;
+  background: #1a1a1a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3347;
+  background: #2a2a2a;
 }
 
 /* Terminal inner scrollbar */
@@ -195,11 +197,11 @@ body {
   background: transparent;
 }
 .terminal-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
 }
 .terminal-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(240, 219, 125, 0.2);
 }
 
 /* Reduced Motion Override */

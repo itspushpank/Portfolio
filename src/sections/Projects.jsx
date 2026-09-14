@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, FolderGit2, ArrowUpRight } from 'lucide-react';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
 import { Github } from '../components/Icons';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
@@ -20,14 +20,14 @@ export default function Projects() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#8b9cff] uppercase tracking-widest mb-2">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d] uppercase tracking-widest mb-2">
               <Sparkles size={14} />
               <span>Engineered Work</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#f5f7fb]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
               Featured Projects
             </h2>
-            <p className="text-sm sm:text-base text-[#9ba4b5] mt-2 max-w-xl">
+            <p className="text-sm sm:text-base text-[#a1a1aa] mt-2 max-w-xl">
               Real-world web applications, campus utilities, and software systems built with modern web technologies.
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Projects() {
             href="https://github.com/itspushpank"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass hover:bg-white/10 text-xs font-mono text-[#9ba4b5] hover:text-[#f5f7fb] border border-white/10 transition-all self-start md:self-auto"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass hover:bg-white/10 text-xs font-mono text-[#a1a1aa] hover:text-white border border-white/10 hover:border-[#f0db7d]/30 transition-all self-start md:self-auto"
           >
             <Github size={15} />
             <span>github.com/itspushpank</span>
@@ -54,7 +54,7 @@ export default function Projects() {
         {/* Filter Pills for Other Projects */}
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-8">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#9ba4b5]">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#a1a1aa]">
               Other Projects ({remainingProjects.length})
             </span>
           </div>
@@ -65,8 +65,8 @@ export default function Projects() {
               onClick={() => setFilter('all')}
               className={`px-3 py-1 rounded-lg text-xs font-mono transition-all ${
                 filter === 'all'
-                  ? 'bg-white/10 text-[#f5f7fb] font-semibold border border-white/20'
-                  : 'text-[#9ba4b5] hover:text-[#f5f7fb]'
+                  ? 'bg-[#f0db7d]/15 text-[#f0db7d] font-semibold border border-[#f0db7d]/30'
+                  : 'text-[#a1a1aa] hover:text-white'
               }`}
             >
               All
@@ -76,8 +76,8 @@ export default function Projects() {
               onClick={() => setFilter('campus')}
               className={`px-3 py-1 rounded-lg text-xs font-mono transition-all ${
                 filter === 'campus'
-                  ? 'bg-white/10 text-[#f5f7fb] font-semibold border border-white/20'
-                  : 'text-[#9ba4b5] hover:text-[#f5f7fb]'
+                  ? 'bg-[#f0db7d]/15 text-[#f0db7d] font-semibold border border-[#f0db7d]/30'
+                  : 'text-[#a1a1aa] hover:text-white'
               }`}
             >
               Campus
@@ -87,8 +87,8 @@ export default function Projects() {
               onClick={() => setFilter('management')}
               className={`px-3 py-1 rounded-lg text-xs font-mono transition-all ${
                 filter === 'management'
-                  ? 'bg-white/10 text-[#f5f7fb] font-semibold border border-white/20'
-                  : 'text-[#9ba4b5] hover:text-[#f5f7fb]'
+                  ? 'bg-[#f0db7d]/15 text-[#f0db7d] font-semibold border border-[#f0db7d]/30'
+                  : 'text-[#a1a1aa] hover:text-white'
               }`}
             >
               Systems
