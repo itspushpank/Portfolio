@@ -25,7 +25,6 @@ This project is built with modern ES modules on Node.js (tested on `v24.15.0`).
 | **`react-dom`** | `19.3.0` | `^19.0.0` | DOM renderer for React 19 |
 | **`three`** | `0.181.2` | `^0.181.0` | 3D graphics rendering engine |
 | **`@react-three/fiber`** | `9.7.0` | `^9.7.0` | React renderer for Three.js (React 19 compatible) |
-| **`@react-three/drei`** | `9.122.0` | `^9.122.0` | Three.js helpers and shader primitives |
 | **`framer-motion`** | `12.23.0` | `^12.23.0` | Declarative UI animations, modal transitions & spring physics |
 | **`lucide-react`** | `1.16.0` | `^1.16.0` | SVG icons for general UI actions and concepts |
 | **`gsap`** | `3.13.0` | `^3.13.0` | Timeline animations and smooth scroll utility |
@@ -218,6 +217,15 @@ Portfolio/
 
 ### 21. Updated Favicon to Custom SVG
 - **Action:** Updated `index.html` favicon link from default Vite logo (`/vite.svg`) to the custom SVG provided in the public folder (`/favicon.svg`).
+
+### 22. Resolved Vercel Deployment ERESOLVE Peer Dependency Failure
+- **Issue:** Vercel deployment threw `ERESOLVE overriding peer dependency` / `Could not resolve dependency: peer react@"^16.8.0 || ^17.0.0 || ^18.0.0" from @react-spring/animated@9.7.5`.
+- **Cause:** `@react-three/drei` (which was unused) depended on `@react-spring/three` -> `@react-spring/animated`, which declared strict peer dependencies on React <=18, conflicting with React 19.
+- **Fix:**
+  - Removed unused `@react-three/drei` from `package.json` and pruned 58 bloated unused packages.
+  - Added `.npmrc` with `legacy-peer-deps=true`.
+  - Added `vercel.json` with explicit `installCommand: "npm install --legacy-peer-deps"`.
+  - Regenerated `package-lock.json` cleanly with 0 vulnerabilities.
 
 ---
 
