@@ -1,71 +1,68 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
+import { personalInfo } from '../data/config';
+import { GithubIcon, InstagramIcon, LinkedinIcon } from './ui/Icons';
+import { Sparkles } from 'lucide-react';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="border-t border-white/[0.08] bg-[#000000] relative z-10">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Brand & Info — Clean "Pushpank" only */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex items-baseline gap-1">
-              <span className="font-bold text-lg tracking-tight text-white">
-                Pushpank
+    <footer
+      className="relative py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden"
+      style={{ background: 'var(--bg-deep)' }}
+    >
+      {/* Botanical ambient gradient with warm sunset orange and golden yellow undertones */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,_rgba(249,115,22,0.08)_0%,_rgba(42,107,42,0.1)_40%,_transparent_75%)] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          {/* Brand & Tagline */}
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <div className="flex items-center gap-2">
+              <span className="font-display text-2xl font-bold tracking-tight text-[var(--text-cream)]">
+                PUSHPANK
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#f0db7d] opacity-90 inline-block" />
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 shadow-[0_0_8px_#f97316]" />
             </div>
-            <p className="text-xs text-[#a1a1aa] mt-1.5 font-mono">
-              B.Tech CSE • Katihar Engineering College (2025–2029)
+            <p className="text-xs sm:text-sm text-[var(--text-dim)]">
+              A developer portfolio hidden inside a moonlit digital botanical garden.
             </p>
           </div>
 
-          {/* Social Links */}
+          {/* Center Note - Borderless */}
+          <div className="flex items-center gap-2 text-xs text-[var(--text-moss)] px-5 py-2.5 rounded-full bg-white/[0.04] backdrop-blur-xl shadow-sm">
+            <Sparkles size={14} className="text-[var(--accent-amber)]" />
+            <span>Built with curiosity, code &amp; a little moonlight.</span>
+          </div>
+
+          {/* Social Links - Borderless */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://github.com/itspushpank"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-[#a1a1aa] hover:text-white hover:border-[#f0db7d]/40 transition-all"
-              aria-label="GitHub Profile"
-            >
-              <Github size={18} />
-            </a>
-            <a
-              href="https://linkedin.com/in/itspushpank"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-[#a1a1aa] hover:text-white hover:border-[#f0db7d]/40 transition-all"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin size={18} />
-            </a>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="p-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-[#a1a1aa] hover:text-[#f0db7d] hover:border-[#f0db7d]/40 transition-all flex items-center gap-1 text-xs font-mono"
-              aria-label="Back to top"
-              title="Back to top"
-            >
-              <ArrowUp size={18} />
-            </button>
+            {[
+              { label: 'GitHub', href: personalInfo.social.github, icon: GithubIcon },
+              { label: 'Instagram', href: personalInfo.social.instagram, icon: InstagramIcon },
+              { label: 'LinkedIn', href: personalInfo.social.linkedin, icon: LinkedinIcon },
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-white/[0.04] hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-orange-500/20 text-[var(--text-moss)] hover:text-[var(--accent-amber)] transition-all duration-300 shadow-sm"
+                  aria-label={item.label}
+                >
+                  <Icon size={16} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#a1a1aa]/60">
-          <div>
-            © {new Date().getFullYear()} Pushpank. All rights reserved.
-          </div>
-          <div className="flex items-center gap-2">
-            <span>Built with pure CSS 3D & React</span>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
-            <span className="text-[#f0db7d]">Zero WebGL</span>
-          </div>
+        {/* Bottom divider & copyright */}
+        <div className="mt-12 pt-8 border-t border-white/[0.03] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-dim)]">
+          <p>© {new Date().getFullYear()} Pushpank Kumar. All rights reserved.</p>
+          <p className="font-mono text-[11px] text-[var(--text-dim)]">
+            Designed with botanical glassmorphism, Three.js &amp; twilight textures
+          </p>
         </div>
       </div>
     </footer>

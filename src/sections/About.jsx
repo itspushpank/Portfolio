@@ -1,129 +1,169 @@
 import React from 'react';
-import { BookOpen, Compass, Sparkles, Terminal } from 'lucide-react';
-import GlassCard from '../components/GlassCard';
+import { motion } from 'framer-motion';
+import { useReducedMotion } from '../utils/helpers';
+import { personalInfo } from '../data/config';
+import { GraduationCap, MapPin, Sparkles } from 'lucide-react';
 
 export default function About() {
+  const { prefersReducedMotion } = useReducedMotion();
+
   return (
-    <section id="about" className="py-24 relative z-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="flex flex-col items-center md:items-start mb-12">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d] uppercase tracking-widest mb-2">
-            <Sparkles size={14} />
-            <span>Developer Profile</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            About Pushpank
-          </h2>
-          <p className="text-sm sm:text-base text-[#a1a1aa] mt-2 max-w-xl text-center md:text-left">
-            Crafting purposeful web interfaces with attention to ergonomics, performance, and spatial interaction.
-          </p>
-        </div>
+    <section
+      id="about"
+      className="py-24 sm:py-32 lg:py-40 relative overflow-hidden"
+      style={{ background: 'var(--bg-forest)' }}
+    >
+      {/* Botanical ambient gradient background with warm red/yellow/orange & blue textures */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-orange-900/15 blur-3xl" />
+        <div className="absolute top-1/2 right-0 w-[450px] h-[450px] rounded-full bg-amber-800/15 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-red-950/15 blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-sky-950/15 blur-3xl" />
+      </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Main Bio Card */}
-          <GlassCard className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d]">
-                <Terminal size={14} />
-                <span>workspace / bio.md</span>
-              </div>
-              
-              <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
-                Computer Science undergraduate focused on modern frontend architecture.
-              </h3>
-
-              <p className="text-sm text-[#a1a1aa] leading-relaxed">
-                I am currently pursuing my Bachelor of Technology in Computer Science & Engineering at <span className="text-white font-medium">Katihar Engineering College</span> (Session 2025–2029). My focus centers on architecting clean, maintainable web applications using React, modern JavaScript, and spatial CSS techniques.
-              </p>
-
-              <p className="text-sm text-[#a1a1aa] leading-relaxed">
-                I enjoy engineering modular UI systems that look refined and feel natural to navigate. Beyond frontend development, I continually practice Data Structures & Algorithms, object-oriented programming in Python and Java, and fundamental software engineering principles.
-              </p>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* LEFT: Personal Information */}
+          <motion.div
+            className="lg:col-span-7 flex flex-col"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+          >
+            {/* Section Tag */}
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 shadow-[0_0_8px_#f97316]" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-[var(--accent-amber)]">
+                Roots &amp; Cultivation
+              </span>
             </div>
 
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-white/[0.08]">
-              <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05]">
-                <div className="text-[11px] font-mono text-[#a1a1aa]">Institution</div>
-                <div className="text-sm font-semibold text-white truncate">KEC Katihar</div>
-              </div>
-              <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05]">
-                <div className="text-[11px] font-mono text-[#a1a1aa]">Session</div>
-                <div className="text-sm font-semibold text-[#f0db7d]">2025–2029</div>
-              </div>
-              <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] col-span-2 sm:col-span-1">
-                <div className="text-[11px] font-mono text-[#a1a1aa]">Location</div>
-                <div className="text-sm font-semibold text-white truncate">Bihar, India</div>
-              </div>
-            </div>
-          </GlassCard>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[var(--text-cream)] mb-6 tracking-tight">
+              About Me
+            </h2>
 
-          {/* Right Column Mini Panels */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Currently Learning Panel */}
-            <GlassCard elevated className="space-y-4">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d]">
-                  <BookOpen size={15} />
-                  <span className="uppercase tracking-wider">CURRENTLY LEARNING</span>
+            {/* Bio paragraphs */}
+            <div className="space-y-4 text-base sm:text-lg text-[var(--text-sage)] leading-relaxed mb-8">
+              {personalInfo.about.map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
+            </div>
+
+            {/* Quick Stats / Education Cards - Borderless */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="p-5 rounded-2xl bg-[var(--bg-card)]/90 backdrop-blur-xl flex items-start gap-3.5 shadow-[0_8px_25px_rgba(0,0,0,0.35)]">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 text-[var(--accent-amber)] shrink-0 shadow-[0_0_15px_rgba(249,115,22,0.15)]">
+                  <GraduationCap size={22} />
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f0db7d]/10 text-[#f0db7d] border border-[#f0db7d]/20">
-                  Active Sprint
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider text-[var(--text-dim)] font-medium">
+                    Education
+                  </h4>
+                  <p className="text-sm font-semibold text-[var(--text-cream)] mt-0.5">
+                    {personalInfo.education.degree}
+                  </p>
+                  <p className="text-xs text-[var(--text-moss)] mt-0.5">
+                    {personalInfo.education.college} · {personalInfo.education.semester}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-[var(--bg-card)]/90 backdrop-blur-xl flex items-start gap-3.5 shadow-[0_8px_25px_rgba(0,0,0,0.35)]">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-orange-500/20 to-sky-500/20 text-[var(--accent-azure)] shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                  <MapPin size={22} />
+                </div>
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider text-[var(--text-dim)] font-medium">
+                    Location &amp; Affiliation
+                  </h4>
+                  <p className="text-sm font-semibold text-[var(--text-cream)] mt-0.5">
+                    {personalInfo.location}
+                  </p>
+                  <p className="text-xs text-[var(--text-moss)] mt-0.5">
+                    Affiliated with {personalInfo.education.university}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Interests Pills - Borderless */}
+            <div>
+              <h4 className="text-xs font-semibold tracking-wider uppercase text-[var(--text-dim)] mb-3 flex items-center gap-1.5">
+                <Sparkles size={14} className="text-[var(--accent-amber)]" />
+                Interests &amp; Focus Areas
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {personalInfo.interests.map((interest, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-[var(--text-sage)] hover:bg-gradient-to-r hover:from-amber-500/20 hover:to-orange-500/20 hover:text-[var(--accent-amber)] transition-all duration-300 shadow-sm"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Botanical Picture Frame - Borderless */}
+          <motion.div
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+          >
+            {/* Outer Decorative Botanical Frame - Borderless with Sunset & Azure Backlight */}
+            <div className="relative p-4 rounded-3xl bg-[var(--bg-card)]/80 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.7)] group">
+              {/* Warm sunset & sky backlight behind frame */}
+              <div className="absolute -top-4 -left-4 w-28 h-28 rounded-full bg-gradient-to-br from-sky-500/20 to-orange-500/20 blur-xl pointer-events-none" />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-gradient-to-br from-amber-400/25 to-yellow-500/25 blur-xl pointer-events-none" />
+
+              {/* Decorative Corner Leaves (SVG with warm sunset gradient) */}
+              <svg
+                className="absolute top-3 right-3 w-8 h-8 text-[var(--accent-amber)]/50 pointer-events-none"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+              </svg>
+
+              {/* Inner Photo Container - Borderless */}
+              <div className="relative rounded-2xl overflow-hidden bg-[var(--bg-deep)] aspect-[4/5] shadow-inner group/photo">
+                <img
+                  src="/profile.jpg"
+                  alt="Pushpank Kumar"
+                  className="w-full h-full object-cover object-center group-hover/photo:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                {/* Soft atmospheric botanical gradient overlay at bottom of photo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)]/80 via-transparent to-transparent pointer-events-none" />
+
+                {/* Floating mini status badge in bottom corner */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-xl text-[11px] text-[var(--text-cream)] shadow-lg">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 animate-pulse" />
+                    <span className="font-medium">Pushpank Kumar</span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-xl text-[var(--accent-amber)] font-mono text-[10px]">
+                    BEU Patna
+                  </span>
+                </div>
+
+                {/* Glass reflection sheen sweep on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent opacity-0 group-hover/photo:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              </div>
+
+              {/* Botanical caption below photo */}
+              <div className="mt-3 px-3 py-1.5 flex items-center justify-between text-xs text-[var(--text-dim)]">
+                <span className="italic font-display">Botanical Developer Portrait</span>
+                <span className="font-mono text-[10px] text-[var(--accent-amber)]">
+                  Bihar, India
                 </span>
               </div>
-
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#f0db7d]" />
-                    <span className="text-sm font-semibold text-white">React Ecosystem</span>
-                  </div>
-                  <span className="text-xs font-mono text-[#a1a1aa]">Hooks & State</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-white/70" />
-                    <span className="text-sm font-semibold text-white">Modern JavaScript</span>
-                  </div>
-                  <span className="text-xs font-mono text-[#a1a1aa]">ES6+, Async, DOM</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#f0db7d]" />
-                    <span className="text-sm font-semibold text-white">Data Structures & Algo</span>
-                  </div>
-                  <span className="text-xs font-mono text-[#a1a1aa]">LeetCode & Logic</span>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Core Focus & Principles Panel */}
-            <GlassCard className="space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#f0db7d] uppercase tracking-wider border-b border-white/[0.08] pb-3">
-                <Compass size={15} />
-                <span>CORE DEVELOPMENT INTERESTS</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 text-xs font-mono text-[#a1a1aa]">
-                <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04] text-white">
-                  • Spatial UI & CSS 3D
-                </div>
-                <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04] text-white">
-                  • Responsive Web Apps
-                </div>
-                <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04] text-white">
-                  • Component Systems
-                </div>
-                <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04] text-white">
-                  • Web Accessibility
-                </div>
-              </div>
-            </GlassCard>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
