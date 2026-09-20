@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../utils/helpers';
-import { GlassButton } from '../components/ui/GlassComponents';
 import { personalInfo } from '../data/config';
 import BotanicalScene from '../components/botanical/BotanicalScene';
 
@@ -49,14 +48,18 @@ export default function Hero() {
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          {/* Central Landing Page Name - Artistic Painting Brush Vibe */}
+          {/* Central Landing Page Name - Marigold Luxury Editorial Typography */}
           <div className="relative mb-6">
             {/* Ambient behind-the-text color bloom */}
             <div className="absolute -inset-6 bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-sky-500/20 blur-3xl pointer-events-none -z-10 rounded-full" />
             
             <h1
-              className="font-brush text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] tracking-wide select-none leading-none landing-name drop-shadow-sm"
+              className="font-marigold font-bold text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] tracking-wider select-none leading-none landing-name drop-shadow-sm"
               style={{
+                fontFamily: "'Marigold', 'Marry Gold', serif",
+                fontWeight: 700,
+                WebkitTextStroke: '1.2px rgba(254, 240, 138, 0.45)',
+                paintOrder: 'stroke fill',
                 background: 'linear-gradient(135deg, #fffbeb 0%, #fde047 22%, #fb923c 48%, #ef4444 72%, #38bdf8 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -72,7 +75,7 @@ export default function Hero() {
 
           {/* Role / Subtitle */}
           <motion.p
-            className="font-body text-xl sm:text-2xl md:text-3xl font-light text-[var(--text-sage)] mb-4 tracking-wide"
+            className="font-body text-xl sm:text-2xl md:text-3xl font-light text-[var(--text-sage)] mb-3 tracking-wide"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.8 }}
@@ -80,40 +83,15 @@ export default function Hero() {
             {personalInfo.title}
           </motion.p>
 
-          {/* Bio tagline with warm golden and cyan accent highlights */}
+          {/* Bio tagline - Small, refined description */}
           <motion.p
-            className="font-body text-base sm:text-lg text-[var(--text-dim)] max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="font-body text-xs sm:text-sm text-[var(--text-dim)] max-w-lg mx-auto mb-6 leading-relaxed tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
             {personalInfo.bio}
           </motion.p>
-
-          {/* Action CTAs - Borderless with subtle cyan/amber glow */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.8 }}
-          >
-            <GlassButton
-              variant="primary"
-              size="lg"
-              onClick={() => scrollToSection('projects')}
-              className="w-full sm:w-auto min-w-[200px] shadow-[0_4px_24px_rgba(56,189,248,0.2)]"
-            >
-              Explore My Work
-            </GlassButton>
-            <GlassButton
-              variant="secondary"
-              size="lg"
-              onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto min-w-[200px]"
-            >
-              Let&apos;s Connect
-            </GlassButton>
-          </motion.div>
         </motion.div>
 
         {/* Scroll indicator */}

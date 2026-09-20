@@ -6,6 +6,8 @@ export default {
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
         body: ['DM Sans', 'system-ui', 'sans-serif'],
+        marigold: ['"Marigold"', '"Marry Gold"', 'Georgia', 'serif'],
+        marrygold: ['"Marry Gold"', '"Marigold"', 'Georgia', 'serif'],
         brush: ['"Kaushan Script"', '"Caveat Brush"', 'cursive'],
         paint: ['"Caveat Brush"', 'cursive'],
         marker: ['"Permanent Marker"', 'cursive'],

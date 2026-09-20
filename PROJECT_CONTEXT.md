@@ -120,7 +120,7 @@ Portfolio/
   - `--shadow-strong`: `0 24px 80px rgba(0, 0, 0, 0.55)`
 
 ### Typography
-- **Landing Display / Brush Typography:** `Kaushan Script`, `Caveat Brush`, cursive (`font-brush` / `.font-paint`) — artistic painting brush vibe for "PUSHPANK".
+- **Landing Display / Floral Editorial:** `Marigold` / `Marry Gold` (`font-marigold` / `font-marrygold`) — high-fashion luxury botanical serif for "PUSHPANK".
 - **Editorial Serif:** `Playfair Display`, Georgia, serif (Headings, titles, brand)
 - **Body Sans:** `DM Sans`, system-ui, -apple-system, sans-serif (Body copy, cards, navigation)
 
@@ -226,6 +226,13 @@ Portfolio/
   - Added `.npmrc` with `legacy-peer-deps=true`.
   - Added `vercel.json` with explicit `installCommand: "npm install --legacy-peer-deps"`.
   - Regenerated `package-lock.json` cleanly with 0 vulnerabilities.
+
+### 23. Transitioned Landing Name to Marigold Bold Font, Compacted Description, and Streamlined Hero CTAs
+- **Action:**
+  - Integrated custom luxury editorial typeface `Marigold` / `Marry Gold` (`Marigold-Regular.woff2`, `Marigold-Regular.otf`, `Marigold-Sans.woff2`, `Marigold-Sans.otf`) provided in `public/fonts/`.
+  - Configured `@font-face` and Tailwind fontFamily (`marigold`, `marrygold`) with bold styling for the landing page name "PUSHPANK".
+  - Made hero description text smaller and refined (`text-xs sm:text-sm max-w-lg`).
+  - Removed "Explore My Work" and "Let's Connect" buttons from the landing page per user request, giving the hero a cinematic, minimalist presentation.
 
 ---
 

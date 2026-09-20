@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Kaushan+Script&family=Caveat+Brush&family=Permanent+Marker&family=Bungee&family=Original+Surfer&display=swap');
 
+@font-face {
+  font-family: 'Marigold';
+  src: url('/fonts/Marigold-Regular.woff2') format('woff2'),
+       url('/fonts/Marigold-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Marry Gold';
+  src: url('/fonts/Marigold-Regular.woff2') format('woff2'),
+       url('/fonts/Marigold-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Marigold Sans';
+  src: url('/fonts/Marigold-Sans.woff2') format('woff2'),
+       url('/fonts/Marigold-Sans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -319,6 +346,15 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 30px rgba(56, 189, 248, 0.12);
+}
+
+.font-marigold,
+.font-marrygold {
+  font-family: 'Marigold', 'Marry Gold', serif;
+}
+
+.font-marigold-sans {
+  font-family: 'Marigold Sans', sans-serif;
 }
 
 .font-brush {
