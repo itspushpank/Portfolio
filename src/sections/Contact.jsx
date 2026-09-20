@@ -36,7 +36,7 @@ export default function Contact() {
     <section
       id="contact"
       className="py-24 sm:py-32 lg:py-40 relative overflow-hidden"
-      style={{ background: 'var(--bg-moss)' }}
+      style={{ background: 'linear-gradient(to bottom, transparent, rgba(23, 48, 30, 0.45) 15%, rgba(23, 48, 30, 0.45) 100%)' }}
     >
       {/* Botanical ambient warm night glow: Red, Yellow, Orange & Azure */}
       <div className="absolute inset-0 pointer-events-none">

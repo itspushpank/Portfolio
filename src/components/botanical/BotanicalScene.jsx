@@ -83,7 +83,7 @@ function createMoonTexture() {
 }
 
 // 3D Moon Component with subtle rotation and atmospheric glow
-function Moon({ mouseParallax }) {
+function Moon({ mouseParallax, scrollProgress }) {
   const moonRef = useRef();
   const glowRef = useRef();
 
@@ -93,16 +93,20 @@ function Moon({ mouseParallax }) {
   }, []);
 
   useFrame((state, delta) => {
+    const sp = scrollProgress?.current || 0;
+    // Parallax tracking: mouse + subtle celestial elevation drift with scroll
+    const posX = 2.4 + mouseParallax.current.x * 0.4;
+    const posY = 1.6 + mouseParallax.current.y * 0.4 + sp * 0.9;
+
     if (moonRef.current) {
       // Gentle, majestic rotation
       moonRef.current.rotation.y += delta * 0.03;
-      // Parallax tracking
-      moonRef.current.position.x = 2.4 + mouseParallax.current.x * 0.4;
-      moonRef.current.position.y = 1.6 + mouseParallax.current.y * 0.4;
+      moonRef.current.position.x = posX;
+      moonRef.current.position.y = posY;
     }
     if (glowRef.current) {
-      glowRef.current.position.x = 2.4 + mouseParallax.current.x * 0.4;
-      glowRef.current.position.y = 1.6 + mouseParallax.current.y * 0.4;
+      glowRef.current.position.x = posX;
+      glowRef.current.position.y = posY;
     }
   });
 
@@ -224,15 +228,15 @@ function BotanicalElement({ initialPos, initialRot, scale, speed, color, type = 
 }
 
 // Luminescent Pollen / Firefly Dust Particles (Dual Gold & Cyan Radiancy)
-function LuminescentDust({ count = 180, mouseParallax }) {
+function LuminescentDust({ count = 220, mouseParallax }) {
   const pointsRef = useRef();
 
   const [positions, speeds] = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const spd = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 18;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 14;
+      pos[i * 3] = (Math.random() - 0.5) * 20;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 18 - 1;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 10 - 1;
       spd[i] = 0.2 + Math.random() * 0.5;
     }
@@ -244,10 +248,12 @@ function LuminescentDust({ count = 180, mouseParallax }) {
     const geo = pointsRef.current.geometry;
     const posAttr = geo.attributes.position;
     const t = state.clock.getElapsedTime();
+    const camY = state.camera.position.y;
 
     for (let i = 0; i < count; i++) {
-      let y = posAttr.getY(i) - delta * speeds[i] * 0.4;
-      if (y < -7) y = 7;
+      let y = posAttr.getY(i) - delta * speeds[i] * 0.35;
+      if (y < camY - 8) y = camY + 8;
+      if (y > camY + 8) y = camY - 8;
       posAttr.setY(i, y);
 
       let x = positions[i * 3] + Math.sin(t * 0.5 + i) * 0.15 + mouseParallax.current.x * 0.2;
@@ -277,7 +283,14 @@ function LuminescentDust({ count = 180, mouseParallax }) {
 }
 
 // Scene Root with Light, Camera Controls & Lush Botanical Canopy
-function BotanicalSceneContent({ mouseParallax }) {
+function BotanicalSceneContent({ mouseParallax, scrollProgress }) {
+  useFrame((state) => {
+    const sp = scrollProgress?.current || 0;
+    // Camera descends organically through the garden canopy down toward the undergrowth
+    const targetY = -sp * 1.8;
+    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, targetY, 0.05);
+  });
+
   // Rich, full botanical collection framing the entire viewport
   const botanicalItems = useMemo(
     () => [
@@ -380,7 +393,7 @@ function BotanicalSceneContent({ mouseParallax }) {
       <directionalLight position={[0, -5, -2]} color="#1b4d2e" intensity={0.6} />
 
       {/* Realistic 3D Celestial Moon */}
-      <Moon mouseParallax={mouseParallax} />
+      <Moon mouseParallax={mouseParallax} scrollProgress={scrollProgress} />
 
       {/* Full collection of 3D botanical leaves and petals */}
       {botanicalItems.map((item, idx) => (
@@ -388,15 +401,15 @@ function BotanicalSceneContent({ mouseParallax }) {
       ))}
 
       {/* Luminescent starlight/firefly dust */}
-      <LuminescentDust count={180} mouseParallax={mouseParallax} />
+      <LuminescentDust count={220} mouseParallax={mouseParallax} />
     </>
   );
 }
 
 // Fallback component for devices without WebGL or with prefers-reduced-motion
-function BotanicalFallback() {
+function BotanicalFallback({ className = 'fixed inset-0 pointer-events-none overflow-hidden z-0' }) {
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className={className}>
       {/* Soft Moon glow with cyan/ivory tone */}
       <div className="absolute top-12 right-[18%] w-36 h-36 rounded-full bg-gradient-to-br from-[#fffbeb] via-[#fed7aa] to-[#7dd3fc] opacity-85 shadow-[0_0_90px_rgba(56,189,248,0.25)]" />
       {/* Ambient lush botanical foliage silhouettes */}
@@ -410,9 +423,10 @@ function BotanicalFallback() {
   );
 }
 
-export default function BotanicalScene() {
+export default function BotanicalScene({ className = 'fixed inset-0 pointer-events-none z-0 overflow-hidden' }) {
   const { prefersReducedMotion } = useReducedMotion();
   const mouseParallax = useRef({ x: 0, y: 0 });
+  const scrollProgress = useRef(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -425,24 +439,35 @@ export default function BotanicalScene() {
       mouseParallax.current.y = y;
     };
 
+    const handleScroll = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress.current = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   if (!mounted || prefersReducedMotion) {
-    return <BotanicalFallback />;
+    return <BotanicalFallback className={className} />;
   }
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-      <WebGLErrorBoundary fallback={<BotanicalFallback />}>
+    <div className={className}>
+      <WebGLErrorBoundary fallback={<BotanicalFallback className={className} />}>
         <Canvas
           camera={{ position: [0, 0, 6], fov: 45, near: 0.1, far: 25 }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
           dpr={[1, 1.5]}
-          style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+          style={{ width: '100vw', height: '100vh', pointerEvents: 'none' }}
         >
-          <BotanicalSceneContent mouseParallax={mouseParallax} />
+          <BotanicalSceneContent mouseParallax={mouseParallax} scrollProgress={scrollProgress} />
         </Canvas>
       </WebGLErrorBoundary>
     </div>

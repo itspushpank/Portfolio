@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../utils/helpers';
 import { personalInfo } from '../data/config';
-import BotanicalScene from '../components/botanical/BotanicalScene';
 
 export default function Hero() {
   const { prefersReducedMotion } = useReducedMotion();
@@ -20,10 +19,7 @@ export default function Hero() {
       id="home"
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500"
-      style={{ background: 'var(--bg-deep)' }}
     >
-      {/* 3D Botanical Scene (Isolated Three.js canvas with warm autumn petals, blue petals & moon) */}
-      <BotanicalScene />
 
       {/* Atmospheric rich texture overlays: Blue, Red, Yellow, Orange blending with moonlit garden */}
       <div

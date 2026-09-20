@@ -234,6 +234,13 @@ Portfolio/
   - Made hero description text smaller and refined (`text-xs sm:text-sm max-w-lg`).
   - Removed "Explore My Work" and "Let's Connect" buttons from the landing page per user request, giving the hero a cinematic, minimalist presentation.
 
+### 24. Extended 3D Botanical Scene to Global Website Background with Scroll Parallax
+- **Action:**
+  - Elevated `BotanicalScene` from `Hero.jsx` to `App.jsx` as a unified, full-page fixed background (`fixed inset-0 z-0 pointer-events-none`).
+  - Added smooth scroll tracking (`scrollProgress`) to `BotanicalSceneContent`: as users scroll down through the website, the camera organically descends from the moon canopy down into the lush midground and undergrowth foliage.
+  - Enhanced `LuminescentDust` firefly particles to 220, dynamically wrapping around the camera Y position so luminescent dust and fireflies float continuously across all sections (Home, About, Journey, Skills, Projects, Contact, Footer).
+  - Updated all section backgrounds from solid colors to translucent gradient washes (`linear-gradient(...)`), allowing the 3D leaves, celestial moon, and fireflies to be visible throughout the entire browsing experience.
+
 ---
 
 ## 💡 6. Guidance for Future AI Agents & Developers

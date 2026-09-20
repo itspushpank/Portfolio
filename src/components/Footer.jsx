@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer
       className="relative py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden"
-      style={{ background: 'var(--bg-deep)' }}
+      style={{ background: 'rgba(12, 27, 16, 0.85)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
     >
       {/* Botanical ambient gradient with warm sunset orange and golden yellow undertones */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,_rgba(249,115,22,0.08)_0%,_rgba(42,107,42,0.1)_40%,_transparent_75%)] pointer-events-none" />

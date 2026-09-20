@@ -21,7 +21,7 @@ export default function Projects() {
     <section
       id="projects"
       className="py-24 sm:py-32 lg:py-40 relative overflow-hidden"
-      style={{ background: 'var(--bg-forest)' }}
+      style={{ background: 'linear-gradient(to bottom, transparent, rgba(18, 38, 23, 0.45) 15%, rgba(18, 38, 23, 0.45) 85%, transparent)' }}
     >
       {/* Background ambient lighting: Red, Yellow, Orange & Azure */}
       <div className="absolute inset-0 pointer-events-none">

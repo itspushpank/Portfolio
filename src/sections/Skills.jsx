@@ -47,7 +47,7 @@ export default function SkillsGarden() {
     <section
       id="skills"
       className="py-24 sm:py-32 lg:py-40 relative overflow-hidden"
-      style={{ background: 'var(--bg-deep)' }}
+      style={{ background: 'linear-gradient(to bottom, transparent, rgba(12, 27, 16, 0.40) 15%, rgba(12, 27, 16, 0.40) 85%, transparent)' }}
     >
       {/* Ambient background warm & celestial blue glows: Red, Yellow, Orange & Azure */}
       <div className="absolute inset-0 pointer-events-none">

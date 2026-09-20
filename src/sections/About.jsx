@@ -11,7 +11,7 @@ export default function About() {
     <section
       id="about"
       className="py-24 sm:py-32 lg:py-40 relative overflow-hidden"
-      style={{ background: 'var(--bg-forest)' }}
+      style={{ background: 'linear-gradient(to bottom, transparent, rgba(18, 38, 23, 0.45) 15%, rgba(18, 38, 23, 0.45) 85%, transparent)' }}
     >
       {/* Botanical ambient gradient background with warm red/yellow/orange & blue textures */}
       <div className="absolute inset-0 pointer-events-none">
