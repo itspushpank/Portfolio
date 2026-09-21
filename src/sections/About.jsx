@@ -132,7 +132,7 @@ export default function About() {
               {/* Inner Photo Container - Borderless */}
               <div className="relative rounded-2xl overflow-hidden bg-[var(--bg-deep)] aspect-[4/5] shadow-inner group/photo">
                 <img
-                  src="/profile.jpg"
+                  src="/profile-pic.jpg"
                   alt="Pushpank Kumar"
                   className="w-full h-full object-cover object-center group-hover/photo:scale-105 transition-transform duration-700 ease-out"
                 />
